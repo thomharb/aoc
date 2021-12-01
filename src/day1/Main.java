@@ -11,6 +11,7 @@ public class Main {
     static ArrayList<Integer> input = new ArrayList<>();
 
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
         try {
             File file = new File("src/day1/input.txt");
             BufferedReader br1 = new BufferedReader(new FileReader(file));
@@ -25,6 +26,10 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        long endTime = System.nanoTime();
+
+        long duration = (endTime - startTime);
+        System.out.printf("Execution time: %d ms", (duration / 1000000));
     }
 
     public static void solve1() {
