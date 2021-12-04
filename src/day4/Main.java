@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ public class Main {
         long startTime = System.nanoTime();
         try {
             File file = new File("src/day4/input.txt");
-//             File file = new File("src/day4/example.txt");
+//            File file = new File("src/day4/example.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
 
             String[][] board = new String[5][5];
@@ -45,6 +46,7 @@ public class Main {
             boards.add(board);
             boards.remove(0);
             solve();
+            solve2();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,6 +81,31 @@ public class Main {
         }
     }
 
+    public static void solve2() {
+        ArrayList<String[][]> boardsLeft = boards;
+        for (String number : numbers) {
+            ArrayList<String[][]> noBingoBoards = new ArrayList<>();
+            for (String[][] board : boardsLeft) {
+                for (int i = 0; i < len; i++) {
+                    for (int j = 0; j < len; j++) {
+                        if (board[i][j].equals(number)) {
+                            board[i][j] = "X";
+                        }
+                        if (bingo2(board)) {
+                            noBingoBoards.remove(board);
+                            finalScore(board, Integer.parseInt(number));
+                        } else if (!noBingoBoards.contains(board)) {
+                            noBingoBoards.add(board);
+                        }
+
+                    }
+                }
+            }
+            boardsLeft = noBingoBoards;
+        }
+    }
+
+
     public static String[][] bingo() {
         for (String[][] board : boards) {
             if (checkCols(board) || checkRows(board)) {
@@ -86,6 +113,10 @@ public class Main {
             }
         }
         return null;
+    }
+
+    public static boolean bingo2(String[][] board) {
+        return checkCols(board) || checkRows(board);
     }
 
     public static boolean checkRows(String[][] board) {
