@@ -27,6 +27,7 @@ public class Main {
             }
 
             solve1();
+            solve2();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,46 +46,72 @@ public class Main {
         }
 
         for (String[] line : input) {
-            drawPipe(line);
+            drawPipe(line, false);
         }
 
-        System.out.println(Arrays.deepToString(map));
         System.out.println("Amount of overlaps: " + countOverlaps());
     }
 
-    public static void drawPipe(String[] coords) {
+    public static void solve2() {
+        map = new int[size][size];
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map.length; j++) {
+                map[i][j] = 0;
+            }
+        }
+
+        for (String[] line : input) {
+            drawPipe(line, true);
+        }
+
+        System.out.println("Amount of overlaps: " + countOverlaps());
+    }
+
+    public static void drawPipe(String[] coords, boolean diagonal) {
         int x1 = Integer.parseInt(coords[0]);
         int y1 = Integer.parseInt(coords[1]);
         int x2 = Integer.parseInt(coords[2]);
         int y2 = Integer.parseInt(coords[3]);
 
-        if (x1 == x2 || y1 == y2) {
+        int offsetX = x2 - x1;
+        int offsetY = y2 - y1;
 
-            int offsetX = x2 - x1;
-            int offsetY = y2 - y1;
+        if (x1 == x2 || y1 == y2) {
 
             if (offsetX < 0) {
                 offsetX = Math.abs(offsetX);
-                int temp = x1;
                 x1 = x2;
-                x2 = temp;
             }
             if (offsetY < 0) {
                 offsetY = Math.abs(offsetY);
-                int temp = y1;
                 y1 = y2;
-                y2 = temp;
             }
-
-            System.out.println(x1 + " " + y1 + " " + x2 + " " + y2);
-
-            System.out.println("offsetX " + offsetX);
-            System.out.println("offsetY " + offsetY);
-
             for (int i = x1; i < x1 + offsetX + 1; i++) {
                 for (int j = y1; j < y1 + offsetY + 1; j++) {
-                    System.out.println(i + " " + j);
                     map[j][i]++;
+                }
+            }
+        } else if (diagonal && Math.abs(x1 - x2) == Math.abs(y1 - y2)) {
+            int j = y1;
+            if (x1 < x2 && y1 < y2) {
+                for (int i = x1; i < x1 + offsetX + 1; i++) {
+                    map[j][i]++;
+                    j++;
+                }
+            } else if (x1 > x2 && y1 < y2) {
+                for (int i = x1; i > x1 + offsetX - 1; i--) {
+                    map[j][i]++;
+                    j++;
+                }
+            } else if (x1 < x2) {
+                for (int i = x1; i < x1 + offsetX + 1; i++) {
+                    map[j][i]++;
+                    j--;
+                }
+            } else {
+                for (int i = x1; i > x1 + offsetX - 1; i--) {
+                    map[j][i]++;
+                    j--;
                 }
             }
         }
@@ -92,9 +119,9 @@ public class Main {
 
     public static int countOverlaps() {
         int counter = 0;
-        for (int i = 0; i < map.length; i++) {
+        for (int[] ints : map) {
             for (int j = 0; j < map.length; j++) {
-                if (map[i][j] > 1) {
+                if (ints[j] > 1) {
                     counter++;
                 }
             }
