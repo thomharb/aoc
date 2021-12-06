@@ -27,38 +27,31 @@ public class Main {
                     input.add(Integer.parseInt(fish));
                 }
             }
-
-            solve1();
+            System.out.printf("Day 1 - Total amount of fish: %d\n", solve(daysPartOne));
+            System.out.printf("Day 2 - Total amount of fish: %d\n", solve(daysPartTwo));
         } catch (IOException e) {
             e.printStackTrace();
         }
         long endTime = System.nanoTime();
-
         long duration = (endTime - startTime);
         System.out.printf("Execution time: %d ms", (duration / 1000000));
     }
 
-    public static void solve1() {
-        for (int i = 0; i < daysPartOne; i++) {
-            System.out.println("day " + (i + 1));
-            int newFish = 0;
-            for (int j = 0; j < input.size(); j++) {
-                int fish = input.get(j);
-                if (fish == 0) {
-                    newFish++;
-                    input.set(j, 6);
-                } else {
-                    input.set(j, fish - 1);
-                }
-            }
-            for (int j = 0; j < newFish; j++) {
-                input.add(8);
-            }
+    public static long solve(int days) {
+        long[] fish = new long[9];
+        for (Integer startingFish : input) {
+            fish[startingFish]++;
         }
-        System.out.println(input.size());
-    }
-
-    public static void solve2() {
-
+        for (int i = 0; i < days; i++) {
+            long zeroFishes = fish[0];
+            System.arraycopy(fish, 1, fish, 0, fish.length - 1);
+            fish[8] = zeroFishes;
+            fish[6] += zeroFishes;
+        }
+        long counter = 0;
+        for (long j : fish) {
+            counter += j;
+        }
+        return counter;
     }
 }
