@@ -6,7 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -27,6 +29,7 @@ public class Main {
                 }
             }
             solve();
+            solve2();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,5 +57,21 @@ public class Main {
         else
             median = (double) input.get(input.size()/2);
         return median;
+    }
+
+    public static void solve2() {
+        int minOffset = -1;
+        for (int i = 0; i < Collections.max(input); i++) {
+            int[] arr = new int[input.size()];
+            for (int j = 0; j < input.size(); j++) {
+                int displacement = Math.abs(input.get(j) - i);
+                arr[j] = displacement + IntStream.range(0, displacement).sum();
+            }
+            int fuel = Arrays.stream(arr).sum();
+            if (fuel < minOffset || minOffset < 0) {
+                minOffset = fuel;
+            }
+        }
+        System.out.println(minOffset);
     }
 }
