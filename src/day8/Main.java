@@ -61,28 +61,15 @@ public class Main {
     public static void solve2() {
         int sum = 0;
         HashMap<Integer, String> mapping = new HashMap<>();
-        HashMap<Integer, String> uniqueMapping = new HashMap<>();
         for (Input input : input) {
             for (String digit : input.input) {
                 String sorted = sort(digit);
                 int length = digit.length();
                 switch (length) {
-                    case 2 -> {
-                        uniqueMapping.put(1, sorted);
-                        mapping.put(1, sorted);
-                    }
-                    case 3 -> {
-                        uniqueMapping.put(7, sorted);
-                        mapping.put(7, sorted);
-                    }
-                    case 4 -> {
-                        uniqueMapping.put(4, sorted);
-                        mapping.put(4, sorted);
-                    }
-                    case 7 -> {
-                        uniqueMapping.put(8, sorted);
-                        mapping.put(8, sorted);
-                    }
+                    case 2 -> mapping.put(1, sorted);
+                    case 3 -> mapping.put(7, sorted);
+                    case 4 -> mapping.put(4, sorted);
+                    case 7 -> mapping.put(8, sorted);
                 }
             }
             for (String digit : input.input) {
@@ -91,10 +78,10 @@ public class Main {
                 switch (length) {
                     // 5 chars: 5 2 3
                     case 5:
-                        if (overlap(sorted, uniqueMapping, 1) == 2) {
+                        if (overlap(sorted, mapping, 1) == 2) {
                             mapping.put(3, sorted);
                             break;
-                        } else if (overlap(sorted, uniqueMapping, 4) == 3) {
+                        } else if (overlap(sorted, mapping, 4) == 3) {
                             mapping.put(5, sorted);
                             break;
                         } else {
@@ -104,10 +91,10 @@ public class Main {
 
                         // 6 chars: 6 9 0
                     case 6:
-                        if (overlap(sorted, uniqueMapping, 1) == 1) {
+                        if (overlap(sorted, mapping, 1) == 1) {
                             mapping.put(6, sorted);
                             break;
-                        } else if (overlap(sorted, uniqueMapping, 4) == 3) {
+                        } else if (overlap(sorted, mapping, 4) == 3) {
                             mapping.put(0, sorted);
                             break;
                         } else {
