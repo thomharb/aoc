@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 public class Main {
 
+    // steps to 500 for p2
     static int steps = 100;
     static int width = 10;
     static int height = 10;
@@ -35,8 +36,7 @@ public class Main {
                 row++;
             }
 
-            solve1();
-            solve2();
+            solve();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,8 +46,9 @@ public class Main {
         System.out.printf("Execution time: %d ms", (duration / 1000000));
     }
 
-    public static void solve1() {
+    public static void solve() {
         int flashCounter = 0;
+        int allFlashed = -1;
         for (int s = 0; s < steps; s++) {
             System.out.println("Step " + s);
             printMap();
@@ -66,8 +67,13 @@ public class Main {
                 map[point[0]][point[1]] = 0;
                 flashCounter++;
             }
+
+            if (allFlashed == -1 && allFlashed()) {
+                allFlashed = s + 1;
+            }
         }
         System.out.printf("Part 1: Total amount of flashes = %d\n", flashCounter);
+        System.out.printf("Part 2: All flashed at step %d\n", allFlashed);
     }
 
     public static void increaseEnergy() {
@@ -151,7 +157,14 @@ public class Main {
         System.out.println(mapSB);
     }
 
-    public static void solve2() {
+    public static boolean allFlashed() {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (map[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
-
 }
