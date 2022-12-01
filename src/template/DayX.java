@@ -1,36 +1,27 @@
-package aoc2022.day1;
+package template;
 
 import resources.Day;
 import resources.Pair;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
-public class Solver extends Day {
-    private final boolean example = false;
-    private List<Long> lines;
+public class DayX extends Day {
+    private final boolean example = true;
+    private String content;
+    private String[] lines;
 
     public static void main(String[] args) throws IOException {
-        new Solver().run();
+        new DayX().run();
     }
 
     public void run() {
         String path = this.example ?
                 Objects.requireNonNull(getClass().getResource("example.txt")).getPath() :
                 Objects.requireNonNull(getClass().getResource("input.txt")).getPath();
-        Pair<String, String[]> parsed = super.parse(path, "\r\n\r\n");
-
-        this.lines = Arrays.stream(parsed.second())
-                .map(line -> line.split("\r\n"))
-                .map(lineSplit -> (Arrays.stream(lineSplit)
-                        .map(Long::parseLong))
-                        .reduce((long) 0, Long::sum))
-                .collect(Collectors.toList());
-        this.lines.sort(Collections.reverseOrder());
+        Pair<String, String[]> parsed = super.parse(path, "\r\n");
+        this.content = parsed.first();
+        this.lines = parsed.second();
         solve();
     }
 
@@ -48,12 +39,14 @@ public class Solver extends Day {
 
     @Override
     public Object one() {
-        return this.lines.get(0);
+        /* -- CODE -- */
+        return null;
     }
 
     @Override
     public Object two() {
-        return this.lines.stream().mapToLong(Long::intValue).limit(3).sum();
+        /* -- CODE -- */
+        return null;
     }
 
 
