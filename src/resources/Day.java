@@ -4,25 +4,41 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Objects;
 
 public abstract class Day {
 
+    public String content;
+    public String[] lines;
 
-    public Pair<String, String[]> parse(String path, String split) {
-        String file = null;
+    public void run(String path, String split) {
+        parse(path, split);
+        solve();
+    }
+
+    public void parse(String path, String split) {
         try {
-            file = Files.readString(Paths.get(path.substring(1)), StandardCharsets.US_ASCII);
+            this.content = Files.readString(Paths.get(path.substring(1)), StandardCharsets.US_ASCII);
         } catch (IOException ignored) {
             throw new Error("Could not parse file.");
         }
-        String[] content = file.split(split);
-        return new Pair<>(file, content);
+        this.lines = this.content.split(split);
     }
 
     protected abstract Object one();
 
     protected abstract Object two();
+
+    void solve() {
+        long start = System.nanoTime();
+        Object result = one();
+        long end = System.nanoTime();
+        print("One", result, (end - start));
+
+        start = System.nanoTime();
+        result = two();
+        end = System.nanoTime();
+        print("Two", result, (end - start));
+    }
 
     public void print(String part, Object result, long time) {
         System.out.printf("\n------------ Part %s ------------\n", part);
