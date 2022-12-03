@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Day1 extends Day {
-    private static final boolean example = true;
+    private static final boolean example = false;
 
     private List<Long> calories;
 
@@ -28,8 +28,8 @@ public class Day1 extends Day {
                 .map(lineSplit -> (Arrays.stream(lineSplit)
                         .map(Long::parseLong))
                         .reduce((long) 0, Long::sum))
+                .sorted(Collections.reverseOrder())
                 .collect(Collectors.toList());
-        this.calories.sort(Collections.reverseOrder());
         return this.calories.get(0);
     }
 
