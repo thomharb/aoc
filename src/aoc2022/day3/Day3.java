@@ -17,31 +17,27 @@ public class Day3 extends Day {
 
     @Override
     public Object one() {
-        List<String> priority = new ArrayList<>();
+        int sum = 0;
         for (String line : lines) {
             Set<String> s1 = new HashSet<>(Arrays.asList(line.substring(0, line.length() / 2).split("")));
             s1.retainAll(new HashSet<>(Arrays.asList(line.substring(line.length() / 2).split(""))));
-            priority.addAll(s1);
+            char dupe = s1.iterator().next().charAt(0);
+            sum += Character.isLowerCase(dupe) ? (int) dupe - 96 : (int) dupe - 38;
         }
-        return priority.stream()
-                .map(item -> item.charAt(0))
-                .map(item -> Character.isLowerCase(item) ? (int) item - 96 : (int) item - 38)
-                .mapToInt(i -> i).sum();
+        return sum;
     }
 
     @Override
     public Object two() {
-        List<String> priority = new ArrayList<>();
+        int sum = 0;
         for (int i = 0; i < lines.length; i += 3) {
             Set<String> s1 = new HashSet<>(Arrays.asList(lines[i].split("")));
             s1.retainAll(new HashSet<>(Arrays.asList(lines[i + 1].split(""))));
             s1.retainAll(new HashSet<>(Arrays.asList(lines[i + 2].split(""))));
-            priority.addAll(s1);
+            char dupe = s1.iterator().next().charAt(0);
+            sum += Character.isLowerCase(dupe) ? (int) dupe - 96 : (int) dupe - 38;
         }
-        return priority.stream()
-                .map(item -> item.charAt(0))
-                .map(item -> Character.isLowerCase(item) ? (int) item - 96 : (int) item - 38)
-                .mapToInt(i -> i).sum();
+        return sum;
     }
 
 }
