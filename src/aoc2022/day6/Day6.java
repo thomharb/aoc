@@ -4,8 +4,7 @@ import resources.Day;
 import resources.Pair;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 public class Day6 extends Day {
@@ -22,8 +21,7 @@ public class Day6 extends Day {
         return IntStream
                 .range(0, content.length() - distinct)
                 .mapToObj(i -> new Pair<>(i, content.substring(i, i + distinct)))
-                .map(p -> new Pair<>(p.first(), new HashSet<>(p.second().chars().mapToObj(c -> (char) c).collect(Collectors.toSet()))))
-                .filter(p -> p.second().size() == distinct)
+                .filter(p -> p.second().chars().distinct().count() == distinct)
                 .toList()
                 .get(0).first() + distinct;
     }
