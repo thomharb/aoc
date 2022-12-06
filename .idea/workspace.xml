@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cee1919c-4367-4775-8aaa-1f1dfd3d391f" name="Changes" comment="2022 day3">
+    <list default="true" id="cee1919c-4367-4775-8aaa-1f1dfd3d391f" name="Changes" comment="2022 day3 shorter">
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day4/Day4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day4/example.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day4/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day5/Day5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day5/example.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day5/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day6/Day6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day6/example.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2022/day6/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2022/day3/Day3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2022/day3/Day3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,40 +43,32 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/dev/working/aoc/src/aoc2022/day3",
+    "last_opened_file_path": "D:/dev/working/aoc/src/aoc2022/day6",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\dev\working\aoc\src\aoc2022\day6" />
+      <recent name="D:\dev\working\aoc\src\aoc2022\day5" />
+      <recent name="D:\dev\working\aoc\src\aoc2022\day4" />
       <recent name="D:\dev\working\aoc\src\aoc2022\day3" />
       <recent name="D:\dev\working\aoc\src\aoc2022\day1\day2" />
-      <recent name="D:\dev\working\aoc\src\aoc2022\day1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\dev\working\aoc\src\aoc2022\day2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Day3">
+  <component name="RunManager" selected="Application.Day6">
     <configuration name="Day1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aoc2022.day1.Day1" />
       <module name="aoc" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="aoc2022.day1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Day2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="aoc2022.day2.Day2" />
-      <module name="aoc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="aoc2022.day2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,12 +89,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DayX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="template.DayX" />
+    <configuration name="Day4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aoc2022.day4.Day4" />
       <module name="aoc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="template.*" />
+          <option name="PATTERN" value="aoc2022.day4.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,12 +102,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="aoc2021.day1.Main" />
+    <configuration name="Day5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aoc2022.day5.Day5" />
       <module name="aoc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="aoc2021.day1.*" />
+          <option name="PATTERN" value="aoc2022.day5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Day6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aoc2022.day6.Day6" />
+      <module name="aoc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aoc2022.day6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Day6" />
+        <item itemvalue="Application.Day5" />
+        <item itemvalue="Application.Day4" />
         <item itemvalue="Application.Day3" />
         <item itemvalue="Application.Day1" />
-        <item itemvalue="Application.Day2" />
-        <item itemvalue="Application.DayX" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -138,7 +152,9 @@
       <workItem from="1669879074286" duration="4072000" />
       <workItem from="1669969900095" duration="1754000" />
       <workItem from="1669983905205" duration="1199000" />
-      <workItem from="1670061880849" duration="3720000" />
+      <workItem from="1670061880849" duration="9679000" />
+      <workItem from="1670258253889" duration="3224000" />
+      <workItem from="1670349790800" duration="3771000" />
     </task>
     <task id="LOCAL-00001" summary="restructure + 2022 day1">
       <created>1669882624639</created>
@@ -168,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670064584619</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2022 day3 shorter">
+      <created>1670096141824</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670096141824</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +213,14 @@
     <MESSAGE value="change class name" />
     <MESSAGE value="restructure + 2022 day2" />
     <MESSAGE value="2022 day3" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022 day3" />
+    <MESSAGE value="2022 day3 shorter" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022 day3 shorter" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this.val$mapper" custom="java.util.stream.ReferencePipeline.StatelessOp" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
